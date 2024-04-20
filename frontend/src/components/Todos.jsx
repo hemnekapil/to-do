@@ -1,9 +1,17 @@
-const Todos = () => {
+const Todos = ({ todos }) => {
   return (
     <div>
-      <h1>Go to gym</h1>
-      <h2>You need to go to the gym</h2>
-      <button>Mark as complted</button>
+      {todos.map((todo, index) => {
+        return (
+          <div key={index}>
+            <h1>{todo.title}</h1>
+            <h2>{todo.description}</h2>
+            <button>
+              {todo.completed == true ? "complted" : "not complted"}
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
 };
